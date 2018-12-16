@@ -30,8 +30,8 @@ Now Let's create some executable files so our crontab will look cleaner when we 
 
 
 
-root@node:~$ touch execute_backup 
-root@node:~$ nano execute_backup
+#root@node:~$ touch execute_backup 
+#root@node:~$ nano execute_backup
 
 
 
@@ -51,8 +51,8 @@ Above is the only command that really NEEDS to go in this executable file. What 
 
 
 
-root@node:~$ chmod +x execute_backup 
-root@node:~$ ./execute_backup
+#root@node:~$ chmod +x execute_backup 
+#root@node:~$ ./execute_backup
 
 
 
@@ -62,13 +62,13 @@ So by this point your backup executable seems like it may be working fine But ho
 
 
 
-root@node:~$ ssh-keygen 
-root@node:~$ [Enter]
-root@node:~$ [Enter] 
-root@node:~$ [Enter] 
-root@node:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub serverhostaddr 
-root@node:~$ [Pass] 
-root@node:~$ ssh serverhostaddr
+#root@node:~$ ssh-keygen 
+#root@node:~$ [Enter]
+#root@node:~$ [Enter] 
+#root@node:~$ [Enter] 
+#root@node:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub serverhostaddr 
+#root@node:~$ [Pass] 
+#root@node:~$ ssh serverhostaddr
 
 
 
@@ -78,8 +78,8 @@ The commands above use some simple utilities to generate SSH keys and copy them 
 
 
 
-root@node:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub '-p porthere serverhostaddr' 
-root@node:~$ [Pass] root@node:~# ssh -pporthere serverhostaddr
+#root@node:~$ ssh-copy-id -i ~/.ssh/id_rsa.pub '-p porthere serverhostaddr' 
+#root@node:~$ [Pass] root@node:~# ssh -pporthere serverhostaddr
 
 
 
