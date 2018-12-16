@@ -1,0 +1,1 @@
+rsync -ax --timeout=30 --rsh="ssh -p22 -c arcfour -l root" serverhostaddr:/var/www/vhosts/ /root/vhosts_backup | mail -s "Backup DONE for your-server (hostname)" MAIL@DOMAIN.COM
