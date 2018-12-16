@@ -30,8 +30,12 @@ Now Let's create some executable files so our crontab will look cleaner when we 
 
 
 
+
 #root@node:$ touch execute_backup 
+
+
 #root@node:$ nano execute_backup
+
 
 
 
@@ -41,7 +45,9 @@ Now you are working with the file that will execute your backup command. For sim
 
 
 
+
 rsync -ax --timeout=30 --rsh="ssh -p22 -c arcfour -l root" serverhostaddr:/var/www/vhosts/ /root/vhosts_backup | mail -s "Backup DONE for your-server (hostname)" MAIL@DOMAIN.COM
+
 
 
 
@@ -51,8 +57,12 @@ Above is the only command that really NEEDS to go in this executable file. What 
 
 
 
+
 #root@node:$ chmod +x execute_backup 
+
+
 #root@node:$ ./execute_backup
+
 
 
 
@@ -63,11 +73,17 @@ So by this point your backup executable seems like it may be working fine But ho
 
 
 #root@node:$ ssh-keygen 
+
 #root@node:$ [Enter]
-#root@node:$ [Enter] 
-#root@node:$ [Enter] 
-#root@node:$ ssh-copy-id -i ~/.ssh/id_rsa.pub serverhostaddr 
-#root@node:$ [Pass] 
+
+#root@node:$ [Enter]
+
+#root@node:$ [Enter]
+
+#root@node:$ ssh-copy-id -i /home/dir/.ssh/id_rsa.pub serverhostaddr
+
+#root@node:$ [Pass]
+
 #root@node:$ ssh serverhostaddr
 
 
@@ -78,8 +94,12 @@ The commands above use some simple utilities to generate SSH keys and copy them 
 
 
 
-#root@node:$ ssh-copy-id -i ~/.ssh/id_rsa.pub '-p porthere serverhostaddr' 
+
+#root@node:$ ssh-copy-id -i /home/dir/.ssh/id_rsa.pub '-p porthere serverhostaddr'
+
+
 #root@node:$ [Pass] root@node:~# ssh -pporthere serverhostaddr
+
 
 
 
@@ -89,10 +109,13 @@ Note that the final line to ssh to your server should result in a good connectio
 
 
 
+
 Now open up your system crontab by running the following command:
 
 
+
 #root@node:$ nano /etc/crontab
+
 
 
 And under your environment variables, before other cron jobs let's do:
@@ -100,7 +123,9 @@ And under your environment variables, before other cron jobs let's do:
 
 
 
+
 14 03 * * * root /root/execute_backup
+
 
 
 
